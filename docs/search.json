@@ -1,0 +1,37 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "BitStat 패키지 특징",
+      "description": "**BitStat**는 **R 패키지**로, 통계 기반의 데이터 분석을 UI/UX로 지원하는 **shiny 웹앱**으로 쉬운 한글 메뉴와 글로벌 영문 메뉴를 지원합니다.\n",
+      "author": [],
+      "contents": "\n\nContents\n기능적 특징\n다국어 지원 (i18n)\n데이터 분석 보고서 지원\n도움말 및 튜토리얼 지원\n\n구조적 특징\nR & shiny\nServer Hosting & Local Hosting\ndlookr & alookr\n\n\n기능적 특징\n다국어 지원 (i18n)\nBitStat은 메뉴와 메시지 등 UI 레벨에서 한글과 영문을 지원합니다.\n\n\n\n한글 지원 BitStat영문 지원 BitStat데이터 분석 보고서 지원\nBitStat은 PDF와 HTML 포맷의 각종 보고서 작성을 지원합니다.\nPDF 포맷 보고서\nPDF 포맷 보고서는 정적 컨텐츠를 제공하며, 데이터 분석 프로젝트의 산출물로 활용이 가능합니다.\n아래 이미지를 클릭하면, PDF 포맷 보고서 샘플을 보실 수 있습니다.\n \nHTML 포맷 보고서\nhtml 포맷 보고서는 동적 컨텐츠를 제공하며, 독립적으로 심층적인 데이터 분석의 수행이 가능합니다.\n아래 이미지를 클릭하면, html 포맷 보고서 샘플을 보실 수 있습니다.\n \n도움말 및 튜토리얼 지원\nrmarkdown 기반의 도움말과 튜토리얼은 사용자가 데이터 분석을 쉽게 수행할 수 있도록 가이드를 제공합니다.\n\n구조적 특징\nR & shiny\nR 패키지로 개발되며, shiny 웹앱으로 UI/UX를 구현하였습니다.\nR 패키지\nR 패키지로 배포가 가능합니다.\nshiny\nshiny 웹앱을 구성합니다. 현재는 프로토타이핑 버전으로 Look & Feal은 shinydashboard로 구현되었습니다.\nServer Hosting & Local Hosting\nServer\nBitStat는 데이터 분석 Server로서 클라우드 환경에 배포되어 데이터 분석을 지원합니다.\nDesktop\nBitStat는 사용자 컴퓨터에서 구동되어 데이터 분석 수행을 지원합니다.\ndlookr & alookr\nBitStat는 dlookr, alookr 패키지의 기능을 최적화 하여 지원합니다.\ndlookr\ndlookr 패키지는 데이터 진단, 탐색적 데이터 분석, 통계적 데이터 변환 기능을 UI/UX 기반과 보고서 기반으로 최적화 및 자동화 합니다.\n\n\n\nhttps://choonghyunryu.github.io/dlookr/\nalookr\nalookr 패키지는 분석 데이터 분할, 이진 분류 모델 적합 및 모델 검증을 자동화하는 AutoML 기능을 지원합니다.\n현재 alookr 패키지는 기능의 만들어지는 과정이기 때문에, BitStat 패키지와 병행해서 기능이 진보될 것입니다.\n\n\n\nhttps://choonghyunryu.github.io/alookr/\n\n\n\n",
+      "last_modified": "2021-10-20T08:29:49+09:00"
+    },
+    {
+      "path": "bitstat.html",
+      "title": "BitStat 개발하기",
+      "description": "Shiny 앱 개발 관점에서, 협업을 위한 BitStat 앱의 특징을 이해한다.\n",
+      "author": [],
+      "contents": "\n\nContents\nBitStat 현황\n개발 버전\n프로토타이핑\n\nBitStat 구조\n소스 디렉토리 구조\n\ni18n (Internationalization)\ni18n을 위한 위젯 정보 파일\ntranslation.csv\n변환을 위한 R 코드\nBitStat 실행하기\n\n도움말\nVignettes\n도움말 메뉴\n\n\nBitStat 현황\n개발 버전\n현재 BitStat는 개발 버전으로 0.5.0.9001 버전 번호를 달고 있습니다. 개발 버전인 관계로 CRAN에 등록되어 있지 않고, github(https://github.com/bit2r/BitStat)에만 등록되어 있습니다.\n프로토타이핑\n현재는 프로토타이핑 개발 버전입니다. 그런데 제품(Product) 개발 버전으로 프로젝트가 변경될 경우에는 UI/UX의 골격이 바뀔 수도 있습니다. 현재는 기능적인 프로토타이핑 중으로 UI/UX는 shinydashboard를 채용하고 있습니다.\nBitStat 구조\nBitStat는 Shiny 앱이면서 R 패키지입니다.\n소스 디렉토리 구조\ninst\napp\nwww\nimg\n이미지 보관 디렉토리\n\nmeta\nlist_datasets.rds\nBitStat 데이터셋 R 데이터 파일\n\nlable_info.xlsx\ntranslation.csv 파일을 작성하기 위한 상세 정보\n\n\ndocs\n도움말 파일 위치 (현재 미생성)\n\n\nmenu\ndata_ui.R\n데이터 관련 메뉴의 UI 기능 구현\n\n기능명_ui.R\n기능이 추가될 때마다 생성\n\n\ntools\ndata.R\n데이터 관련 메뉴의 Server side 기능 구현\n\n기능명.R\n기능이 추가될 때마다 생성\n\n\nglobal.R\nserver.R\nui.R\n\ntranslation\ntranslation.csv\ni18n을 위한 메뉴/메시지 메타파일\n\n\n\nR\n패키지 소스 파일로 앱과 연관관계가 적은 공통 기능 구현\n\ni18n (Internationalization)\ni18n을 구현하는 방법을 살펴보자.\ni18n을 위한 위젯 정보 파일\ni18n을 위한 위젯 정보 파일인 lable_info.xlsx은 위젯들에 대한 정보를 담고 있는 엑셀 파일로 다음과 같은 컬럼을 가지고 있습니다.\n1차 기능\n기능분류의 1단계\n\n2차 기능\n기능분류의 2단계\n\n3차 기능\n기능분류의 3단계\n\n4차 기능\n기능분류의 4단계\n\n라벨_한글\n한글 라벨\n\n라벨_영어\n영문 라벨\n\n위젯 종류\n위젯의 종류\n\n위젯 아이디\n프로그램에서의 위젯 아이디\n\n인/아웃\n입/출력 여부\n\n설명\n위젯에 대한 설명\n\nlable_info.xlsx\n\n\n\n협업 포인트\n\n1. 일정 분량의 소스 코드가 개발되면, 문서에 정리한다.\n\n2. 한글 라벨에 대응하는 영문 라벨을 번역한다.\n\n3. 기 작성 라벨의 오탈자, 오역을 수정한다.\n\n\ntranslation.csv\ni18n을 위한 메뉴/메시지 메타파일인 translation.csv은 lable_info.xlsx 파일의 “라벨_한글”, “영문 라벨” 컬럼을 복사하여 만듭니다.\ntranslation.csv변환을 위한 R 코드\ntranslate() 함수에 translation.csv에 정의된 한글 메뉴/메시지를 입력하면 됩니다.\n\n\nlibrary(BitStat)\nassign(\"language\", \"en\", envir = .BitStatEnv)\n\ntranslate(\"범주 레벨 순서변경:\")\n\n\n[1] \"Reorder levels:\"\n\ntranslate(\"범주 레벨 변경/병합은 범주형 데이터만 지원합니다. 원한다면 먼저 범주형 데이터로 변경 후 진행하세요.\")\n\n\n[1] \"Reorganize levels only support factors. If you want, cast it to factor first.\"\n\nBitStat 실행하기\n한글 메뉴 실행하기\n한글 메뉴가 기본이기 때문에 launch() 함수만 호출하면 됩니다.\n\n\nlibrary(BitStat)\n\nlaunch()\n\n\n\n영어 메뉴 실행하기\n영어 메뉴는 language 인수값에 “en”을 지정하여 launch() 함수를 호출하면 됩니다.\n\n\nlibrary(BitStat)\n\nlaunch(language = \"en\")\n\n\n\n도움말\nBitStat 활용도를 높이기 위해서 도움말을 제공할 계획입니다.\nVignettes\nBitStat의 소개를 중심으로 도움말을 작성합니다.\n도움말 메뉴\n기능별로 상세하게 도움말을 작성합니다.\nrmarkdown을 이용해서 도움말을 작성합니다.\n사례 중심의 도움말을 작성합니다.\n사례 발굴이 필요합니다.\n데이터, 분석 시나리오 등\n\n\n\n\n\n\n협업 포인트\n\n1. 기 개발 범위 내에서 도움말 메뉴를 작성한다.\n\n2. 향후 개발 범위에 대해서 내장 데이터 기반의 도움말 시나리오를 만든다.\n\n3. Vignettes을 작성한다.\n\n\n\n\n\n",
+      "last_modified": "2021-10-20T08:29:52+09:00"
+    },
+    {
+      "path": "index.html",
+      "title": "BitStat",
+      "description": "오픈 통계 패키지인 **BitStat**는 디지털 시대에 필수 역량이 되어 버린 **Data Literacy 역량 강화**를 위한 목적으로 개발되며, 공유 문화 기반으로 개인과 기업의 **디지털 전환에 기여**코자 합니다. \n",
+      "author": [],
+      "contents": "\n오픈소스\n오픈통계 패키지 BitStat는 통계 데이터분석기의 이름입니다. 현재는 개발 단계에 있으며, 오픈소스 정책으로 소스가 공유되어 있습니다.\nBitStat 웹앱\nBitStat는 R/Shiny로 구현되고 있는 웹앱(Web Application)입니다.\n\nBitStat 패키지\nBitStat는 BitStat라는 이름의 R 패키지로 배포됩니다. 현재는 개발 버전입니다.\n\n\nBitStat 소스 리파지토리\nGithub : https://github.com/bit2r/BitStat\n\n\n\n",
+      "last_modified": "2021-10-20T08:29:53+09:00"
+    },
+    {
+      "path": "todo.html",
+      "title": "진행 경과 및 계획",
+      "description": "오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다.\n",
+      "author": [],
+      "contents": "\n\nContents\nBitStat 현황\n개발 버전\n프로토타이핑\n\n진행 경과\n단기 계획\n\nBitStat 현황\n개발 버전\n현재 BitStat는 개발 버전으로 0.5.0.9001 버전 번호를 달고 있습니다. 개발 버전인 관계로 CRAN에 등록되어 있지 않고, github(https://github.com/bit2r/BitStat)에만 등록되어 있습니다.\n프로토타이핑\n현재는 프로토타이핑 개발 버전입니다. 그런데 제품(Product) 개발 버전으로 프로젝트가 변경될 경우에는 UI/UX의 골격이 바뀔 수도 있습니다. 현재는 기능적인 프로토타이핑 중으로 UI/UX는 shinydashboard를 채용하고 있습니다.\n진행 경과\nBitStat는 2021년 9월부터 개발되 시작한 통계적 데이터 분석 툴의 프로토타이핑입니다.\n현재는 데이터 입력/진단을 마무리하고, 데이터 변환 기능을 구현하고 있는 단계입니다.\n\n진행 경과 표\n대분류\n중분류\n소분류\n상세 기능\n데이터\n데이터 준비\n데이터 업로드\nCSV 파일\n엑셀 파일\nR 데이터 파일\n\n데이터\n데이터 준비\n데이터 관리\n데이터셋 정보 편집\n데이터셋 삭제\n데이터셋 다운로드\n전체 다운로드\n\n데이터\n데이터 진단\n진단 개요\n데이터 진단 개요\n데이터 진단 상세\n\n데이터\n데이터 진단\n변수별 진단\n개별 변수별 데이터 진단\n\n데이터\n데이터 진단\n이상치\n이상치 진단 분석\n\n데이터\n데이터 진단\n보고서 작성\npdf 보고서 작성\nweb 보고서 작성\n\n데이터\n데이터 변환\n변수 조작\n변수 이름 변경\n변수 형 변환\n변수 삭제\n변수 레벨 순서변경\n변수 레벨 변경/병합\n변수 변환\n변수 비닝\n\n\n단기 계획\n2021년 하반기까지는 기술통계와 단순선형모형을 구현할 계획입니다.\n\n진행 계획 표\n대분류\n중분류\n소분류\n상세 기능\n데이터\n데이터 변환\n데이터 정제\n결측치 제거/대체\n이상치 제거/대체\n중복 관측치 제거\n\n데이터\n데이터 변환\n데이터 분할\nRandom Simple Sampling\nBootstrap Sampling\nHoldout Sampling\n\n기술통계\nEDA\n단변량\n통계량\n시각화\n\n기술통계\nEDA\n이변량\n통계량\n시각화\n\n기술통계\nEDA\n다변량\n통계량\n시각화\n\n회귀분석\n단순선형모형\n모델 적합\n변수선택\n모델 적합\n\n회귀분석\n단순선형모형\n모델 진단\n모델 진단\n\n회귀분석\n단순선형모형\n예측\n예측\n\n\n\n\n",
+      "last_modified": "2021-10-20T08:29:53+09:00"
+    }
+  ],
+  "collections": []
+}

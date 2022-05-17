@@ -55,7 +55,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -76,7 +76,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -84,30 +84,31 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
   <title>BitStat: 진행 경과 및 계획</title>
 
-  <meta property="description" itemprop="description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다."/>
+  <meta property="description" itemprop="description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="BitStat: 진행 경과 및 계획"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다."/>
+  <meta property="og:description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="BitStat"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="BitStat: 진행 경과 및 계획"/>
-  <meta property="twitter:description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다."/>
+  <meta property="twitter:description" content="오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","output"]}},"value":[{"type":"character","attributes":{},"value":["진행 경과 및 계획"]},{"type":"character","attributes":{},"value":["오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","output"]}},"value":[{"type":"character","attributes":{},"value":["진행 경과 및 계획"]},{"type":"character","attributes":{},"value":["오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -454,7 +455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1861,7 +1862,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2414,7 +2418,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2434,7 +2438,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"진행 경과 및 계획","description":"오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다.","authors":[]}
+{"title":"진행 경과 및 계획","description":"오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2463,7 +2467,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>진행 경과 및 계획</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2021년내(단기)의 계획을 소개합니다.</p></p>
+<p><p>오픈통계 패키지는 현재 진화되고 있으며, 진행된 경과와 2022년 상반기 계획을 소개합니다.</p></p>
 </div>
 
 
@@ -2484,7 +2488,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h1 id="bitstat-현황">BitStat 현황</h1>
 <h2 id="개발-버전">개발 버전</h2>
-<p>현재 BitStat는 개발 버전으로 0.5.0.9001 버전 번호를 달고 있습니다. 개발 버전인 관계로 CRAN에 등록되어 있지 않고, github(<a href="https://github.com/bit2r/BitStat" target="_blank">https://github.com/bit2r/BitStat</a>)에만 등록되어 있습니다.</p>
+<p>현재 BitStat는 개발 버전으로 2022-05-17 기준으로 0.5.2.9001 버전 번호를 달고 있습니다. 개발 버전인 관계로 CRAN에 등록되어 있지 않고, github(<a href="https://github.com/bit2r/BitStat" target="_blank">https://github.com/bit2r/BitStat</a>)에만 등록되어 있습니다.</p>
 <h2 id="프로토타이핑">프로토타이핑</h2>
 <p>현재는 프로토타이핑 개발 버전입니다. 그런데 제품(Product) 개발 버전으로 프로젝트가 변경될 경우에는 UI/UX의 골격이 바뀔 수도 있습니다. 현재는 기능적인 프로토타이핑 중으로 UI/UX는 shinydashboard를 채용하고 있습니다.</p>
 <h1 id="진행-경과">진행 경과</h1>
@@ -2496,10 +2500,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 <table>
 <colgroup>
-<col style="width: 18%" />
+<col style="width: 17%" />
 <col style="width: 20%" />
-<col style="width: 22%" />
-<col style="width: 38%" />
+<col style="width: 21%" />
+<col style="width: 39%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2523,7 +2527,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <tr class="even">
 <td style="text-align: left;">데이터</td>
 <td style="text-align: left;">데이터 준비</td>
-<td style="text-align: left;">데이터 관리</td>
+<td style="text-align: left;">데이터셋 관리</td>
 <td style="text-align: left;"><ul>
 <li>데이터셋 정보 편집</li>
 <li>데이터셋 삭제</li>
@@ -2579,21 +2583,63 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>변수 비닝</li>
 </ul></td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">기술통계</td>
+<td style="text-align: left;">집계표</td>
+<td style="text-align: left;">수치형 변수</td>
+<td style="text-align: left;"><ul>
+<li>기술통계 집계표 생성</li>
+<li>데이터 분포 density 플롯</li>
+<li>범주 조합별 분석 기능</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">기술통계</td>
+<td style="text-align: left;">상관관계</td>
+<td style="text-align: left;">상관행렬</td>
+<td style="text-align: left;"><ul>
+<li>상관행렬 계산</li>
+<li>피어슨, 캔들, 스피어만</li>
+<li>상관행렬 플롯</li>
+<li>범주 조합별 분석 기능</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">기술통계</td>
+<td style="text-align: left;">상관관계</td>
+<td style="text-align: left;">상관검정</td>
+<td style="text-align: left;"><ul>
+<li>상관검정</li>
+<li>피어슨, 캔들, 스피어만</li>
+<li>단측검정, 양측검정</li>
+<li>두변수의 관계 시각화</li>
+<li>범주 조합별 분석 기능</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">도움말</td>
+<td style="text-align: left;">데이터</td>
+<td style="text-align: left;">데이터 준비</td>
+<td style="text-align: left;"><ul>
+<li>국문</li>
+</ul></td>
+</tr>
 </tbody>
 </table>
 <p><br> <br></p>
 <h1 id="단기-계획">단기 계획</h1>
-<p><strong>2021년 하반기</strong>까지는 <strong>기술통계와 단순선형모형을 구현</strong>할 계획입니다.</p>
+<p><strong>2022년 상반기</strong>까지는 <strong>기술통계와 단순선형모형을 구현</strong>할 계획입니다.</p>
 <p><br></p>
 <ul>
 <li>진행 계획 표</li>
 </ul>
 <table>
 <colgroup>
+<col style="width: 15%" />
+<col style="width: 17%" />
 <col style="width: 18%" />
-<col style="width: 20%" />
-<col style="width: 22%" />
-<col style="width: 38%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2601,6 +2647,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <th style="text-align: left;">중분류</th>
 <th style="text-align: left;">소분류</th>
 <th style="text-align: left;">상세 기능</th>
+<th style="text-align: left;">예정 시기</th>
 </tr>
 </thead>
 <tbody>
@@ -2613,6 +2660,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>이상치 제거/대체</li>
 <li>중복 관측치 제거</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">데이터</td>
@@ -2623,15 +2671,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>Bootstrap Sampling</li>
 <li>Holdout Sampling</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">기술통계</td>
-<td style="text-align: left;">EDA</td>
-<td style="text-align: left;">단변량</td>
+<td style="text-align: left;">집계표</td>
+<td style="text-align: left;">범주형 변수</td>
 <td style="text-align: left;"><ul>
-<li>통계량</li>
-<li>시각화</li>
+<li>돗수분포표</li>
+<li>분할표</li>
+<li>범주별 분포 플롯</li>
 </ul></td>
+<td style="text-align: left;">2022/05</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">기술통계</td>
@@ -2641,6 +2692,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>통계량</li>
 <li>시각화</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">기술통계</td>
@@ -2650,6 +2702,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>통계량</li>
 <li>시각화</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">회귀분석</td>
@@ -2659,6 +2712,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>변수선택</li>
 <li>모델 적합</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">회귀분석</td>
@@ -2667,6 +2721,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <td style="text-align: left;"><ul>
 <li>모델 진단</li>
 </ul></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">회귀분석</td>
@@ -2675,6 +2730,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <td style="text-align: left;"><ul>
 <li>예측</li>
 </ul></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">도움말</td>
+<td style="text-align: left;">데이터</td>
+<td style="text-align: left;">데이터 준비</td>
+<td style="text-align: left;"><ul>
+<li>국문</li>
+</ul></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
